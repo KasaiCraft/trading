@@ -1,0 +1,242 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartAI - AI-Powered Trading Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Supabase CDN -->
+    <script type="module">
+        import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+        window.supabase = createClient('https://exotpyyckxoqphbhpucm.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4b3RweXlja3hvcXBoYmhwdWNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5NzEyNjEsImV4cCI6MjA2OTU0NzI2MX0.nCaBQqpIffOM-YY30sWIUL38wkSBeiWj99nX5ZXfA3Q');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="nav">
+                <div class="logo">
+                    <span class="logo-icon">📈</span>
+                    <span class="logo-text">ChartAI</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="#features">Features</a>
+                    <button class="btn-secondary" id="signin-btn">Sign In</button>
+                    <button class="btn-primary" id="getstarted-btn">Get Started</button>
+                    <button class="btn-secondary" id="logout-btn" style="display: none;">Log Out</button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    AI-Powered Trading Analysis
+                    <span class="title-gradient">in Seconds</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Upload any stock or crypto chart screenshot. Our advanced AI analyzes patterns, indicators, and trends to give you instant Buy/Sell/Hold signals.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn-primary btn-large" id="try-demo">Try Free Demo</button>
+                </div>
+            </div>
+            
+            <!-- Demo Upload Area -->
+            <div class="demo-section" id="demo-section">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-content">
+                        <div class="upload-icon">📊</div>
+                        <h3>Drop your chart screenshot here</h3>
+                        <p>Supports PNG, JPG, JPEG files up to 10MB</p>
+                        <button class="btn-upload" id="upload-btn">Choose File</button>
+                        <input type="file" id="file-input" accept="image/*" hidden>
+                    </div>
+                </div>
+                
+                <!-- Analysis Results -->
+                <div class="analysis-results" id="analysis-results" style="display: none;">
+                    <div class="results-header">
+                        <h3>AI Analysis Complete</h3>
+                        <div class="analysis-time">Analysis completed in 2.3s</div>
+                    </div>
+                    
+                    <div class="signal-card" id="signal-card">
+                        <div class="signal-header">
+                            <span class="signal-badge" id="signal-badge">STRONG BUY</span>
+                            <span class="confidence" id="confidence">92% Confidence</span>
+                        </div>
+                        <p class="signal-reason" id="signal-reason">
+                            Bullish Engulfing pattern detected at key support level. RSI showing oversold conditions with bullish divergence.
+                        </p>
+                    </div>
+                    
+                    <div class="technical-details">
+                        <h4>Technical Analysis Details</h4>
+                        <div class="details-grid" id="details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Pattern Detected</span>
+                                <span class="detail-value">Bullish Engulfing</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Support Level</span>
+                                <span class="detail-value">$42,850</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">RSI</span>
+                                <span class="detail-value">28.4 (Oversold)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">MACD</span>
+                                <span class="detail-value">Bullish Crossover</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" id="get-full-analysis">Get Detailed Analysis</button>
+                </div>
+            </div>
+
+            <!-- Detailed Analysis Report Display -->
+            <div class="detailed-analysis-report" id="detailed-analysis-report" style="display: none;">
+                <div class="report-header">
+                    <h2>Detailed Analysis Report</h2>
+                    <button class="btn-close-report" id="close-report-btn">✖</button>
+                </div>
+                <div class="report-content" id="report-content">
+                    <!-- Detailed analysis content will be inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="section-header">
+                <h2>Powered by Advanced AI Models</h2>
+                <p>Our multi-model approach combines the best of computer vision and financial analysis</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Pattern Recognition</h3>
+                    <p>Detects 50+ candlestick patterns including Doji, Hammer, Engulfing, and more complex formations</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Technical Indicators</h3>
+                    <p>Analyzes RSI, MACD, Bollinger Bands, Moving Averages, and custom indicator combinations</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Support & Resistance</h3>
+                    <p>Identifies key price levels and trend lines with high accuracy using computer vision</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Analysis</h3>
+                    <p>Get professional-grade analysis in under 3 seconds, powered by Kimi 2 and DeepSeek models</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Any Platform</h3>
+                    <p>Works with screenshots from TradingView, MT4, Binance, Coinbase, and any trading platform</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Secure & Private</h3>
+                    <p>Your trading data is processed securely and never stored. Complete privacy guaranteed</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">📈</span>
+                        <span class="logo-text">ChartAI</span>
+                    </div>
+                    <p>AI-powered trading analysis for the modern trader</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="#">Features</a>
+                        <a href="#">API</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Status</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ChartAI. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="signin-modal">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <div class="form-group">
+                    <label for="signin-email">Email</label>
+                    <input type="email" id="signin-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signin-password">Password</label>
+                    <input type="password" id="signin-password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary modal-btn">Login</button>
+                <p id="signin-error" class="error-message" style="color: red; margin-top: 10px;"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="signup-modal">&times;</span>
+            <h2>Get Started</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary modal-btn">Sign Up</button>
+                <p id="signup-error" class="error-message" style="color: red; margin-top: 10px;"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
